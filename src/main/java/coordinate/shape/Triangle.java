@@ -21,13 +21,6 @@ public class Triangle extends Polygon {
     public double calculateArea() {
         List<Double> distances = getDistances();
 
-        for (Double distance : distances) {
-            System.out.println("distance = " + distance);
-        }
-
-        // 헤론의 공식
-        // s = a + b + c / 2
-        // S(면적) = s(s-a)(s-b)(s-c)의 제곱근
         double a = distances.get(0);
         double b = distances.get(1);
         double c = distances.get(2);
@@ -38,24 +31,18 @@ public class Triangle extends Polygon {
     }
 
     private List<Double> getDistances() {
-        // 꼭지점
         List<Point> vertexes = points.getPoints();
         Point point1 = vertexes.get(0);
         Point point2 = vertexes.get(1);
         Point point3 = vertexes.get(2);
 
-        // 각 꼭지점 간 거리 (빗변)
-        double distance1 = point1.getDistance(point2);
-        double distance2 = point1.getDistance(point3);
-        double distance3 = point2.getDistance(point3);
+        double distance1 = Straight.calculateDistance(point1, point2);
+        double distance2 = Straight.calculateDistance(point2, point3);
+        double distance3 = Straight.calculateDistance(point1, point3);
 
         return Arrays.asList(distance1, distance2, distance3);
     }
 
-    @Override
-    public double calculateDistance() {
-        return 0;
-    }
 
     @Override
     void errorMessage() {

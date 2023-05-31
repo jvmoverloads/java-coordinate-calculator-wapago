@@ -18,6 +18,10 @@ public abstract class Polygon implements Calculatable {
 
     abstract void errorMessage();
 
+    public Points getPoints() {
+        return points;
+    }
+
     @Override
     public double calculateArea() {
         if (points.getLength() >= 3){
@@ -28,19 +32,7 @@ public abstract class Polygon implements Calculatable {
     }
 
     @Override
-    public double calculateDistance() {
-        if (points.getLength() <= 2)
-            return calculateDistance();
-
-        return 0;
-    }
-
-    @Override
     public String getPolygonName() {
         return this.polygonName;
-    }
-
-    public Points getPoints() {
-        return points;
     }
 }

@@ -37,8 +37,6 @@ public class Point {
             this.x = point[0];
             this.y = point[1];
         }
-        System.out.println(this.x);
-        System.out.println(this.y);
     }
 
     public int getX() {
@@ -49,10 +47,6 @@ public class Point {
         return y;
     }
 
-    public double getDistance(Point point) {
-        int x = point.getX();
-        int y = point.getY();
 
-        return Math.sqrt(Math.pow((x - this.x), 2) + Math.pow((y - this.y), 2));
-    }
+
 }

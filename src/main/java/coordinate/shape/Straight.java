@@ -3,8 +3,6 @@ package coordinate.shape;
 import coordinate.Point;
 import coordinate.Points;
 
-import java.util.List;
-
 public class Straight extends Polygon {
 
     protected static final String POLYGON_NAME = "STRAIGHT";
@@ -16,13 +14,15 @@ public class Straight extends Polygon {
         this.points = points;
     }
 
-    @Override
-    public double calculateDistance() {
-        List<Point> vertexes = points.getPoints();
-        Point point1 = vertexes.get(0);
-        Point point2 = vertexes.get(1);
+    public static double calculateDistance(Point point1, Point point2) {
+        int x1 = point1.getX();
+        int y1 = point1.getY();
 
-        return point1.getDistance(point2);
+        int x2 = point2.getX();
+        int y2 = point2.getY();
+
+
+        return Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
     }
 
     @Override
